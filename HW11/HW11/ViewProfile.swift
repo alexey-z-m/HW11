@@ -212,7 +212,7 @@ class ViewProfile: UIViewController {
     private lazy var separator: UIView = {
         let separator = UIView()
         
-        separator.backgroundColor = .gray
+        separator.backgroundColor = #colorLiteral(red: 0.1882351339, green: 0.1882354915, blue: 0.1968305111, alpha: 1)
         
         return separator
     }()
@@ -401,7 +401,7 @@ class ViewProfile: UIViewController {
         btnTabVideo.heightAnchor.constraint(equalToConstant: Metric.imgAvaHeight).isActive = true
         btnTabVideo.widthAnchor.constraint(equalToConstant: Metric.imgAvaWidth).isActive = true
         
-        separator.heightAnchor.constraint(equalToConstant: 1).isActive = false
+        separator.heightAnchor.constraint(equalToConstant: 1).isActive = true
         
         btnJob.titleLabel?.leadingAnchor.constraint(equalTo: btnJob.leadingAnchor).isActive = true
         btnGift.titleLabel?.leadingAnchor.constraint(equalTo: btnGift.leadingAnchor).isActive = true
