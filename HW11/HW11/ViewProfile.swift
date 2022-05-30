@@ -1,10 +1,3 @@
-//
-//  ViewProfile.swift
-//  HW11
-//
-//  Created by Panda on 19.05.2022.
-//
-
 import Foundation
 import UIKit
 
@@ -29,18 +22,18 @@ class ViewProfile: UIViewController {
         return infoStackView
     }()
     
-    private lazy var imgAvatar: UIImageView = {
-        var imgAvatar = UIImageView()
+    private lazy var imageAvatar: UIImageView = {
+        var imageAvatar = UIImageView()
         
-        let img = UIImage(named: "ava")
-        imgAvatar.image = img
-        imgAvatar.clipsToBounds = true
-        imgAvatar.layer.cornerRadius = Metric.imgAvaHeight / 2
+        let image = UIImage(named: "ava")
+        imageAvatar.image = image
+        imageAvatar.clipsToBounds = true
+        imageAvatar.layer.cornerRadius = Metric.imgAvaHeight / 2
         
-        return imgAvatar
+        return imageAvatar
     }()
     
-    private lazy var lblStackView: UIStackView = {
+    private lazy var labelStackView: UIStackView = {
         var stackView = UIStackView()
         
         stackView.axis = .vertical
@@ -49,25 +42,25 @@ class ViewProfile: UIViewController {
         return stackView
     }()
     
-    private lazy var lblName: UILabel = {
-        var lblName = UILabel()
+    private lazy var labelName: UILabel = {
+        var labelName = UILabel()
         
-        lblName.text = "Alexey Zablotskiy"
-        lblName.font = UIFont(name: "Helvetica-Bold", size: 18)
-        lblName.textColor = .white
-        return lblName
+        labelName.text = "Alexey Zablotskiy"
+        labelName.font = UIFont(name: "Helvetica-Bold", size: 18)
+        labelName.textColor = .white
+        return labelName
     }()
     
-    private lazy var lblStatus: UIButton = {
-        var lblStatus = UIButton(type: .system)
+    private lazy var labelStatus: UIButton = {
+        var labelStatus = UIButton(type: .system)
         
-        lblStatus.setTitle("Установить статус", for: .normal)
-        lblStatus.titleLabel?.font = .systemFont(ofSize: 14 )
+        labelStatus.setTitle("Установить статус", for: .normal)
+        labelStatus.titleLabel?.font = .systemFont(ofSize: 14 )
         let color = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
-        lblStatus.setTitleColor(color, for: .normal)
-        lblStatus.contentHorizontalAlignment = .leading
-        lblStatus.backgroundColor = #colorLiteral(red: 0.1716532707, green: 0.1766338348, blue: 0.1851372421, alpha: 0)
-        return lblStatus
+        labelStatus.setTitleColor(color, for: .normal)
+        labelStatus.contentHorizontalAlignment = .leading
+        labelStatus.backgroundColor = #colorLiteral(red: 0.1716532707, green: 0.1766338348, blue: 0.1851372421, alpha: 0)
+        return labelStatus
     }()
     
     private lazy var onlineStackView: UIStackView = {
@@ -80,33 +73,33 @@ class ViewProfile: UIViewController {
         return stackView
     }()
     
-    private lazy var lblOnline: UILabel = {
-        var lblOnline = UILabel()
+    private lazy var labelOnline: UILabel = {
+        var labelOnline = UILabel()
         
-        let img = NSTextAttachment()
-        img.image = UIImage(systemName: "iphone.homebutton")?.withTintColor(.gray)
-        img.bounds = CGRect(x: 0, y: -2, width: 11, height: 14)
+        let imagePhone = NSTextAttachment()
+        imagePhone.image = UIImage(systemName: "iphone.homebutton")?.withTintColor(.gray)
+        imagePhone.bounds = CGRect(x: 0, y: -2, width: 11, height: 14)
         let fullString = NSMutableAttributedString(string: "online ")
-        fullString.append(NSAttributedString(attachment: img))
+        fullString.append(NSAttributedString(attachment: imagePhone))
         
-        lblOnline.attributedText = fullString
-        lblOnline.font = .systemFont(ofSize: 14 )
-        lblOnline.textColor = .gray
+        labelOnline.attributedText = fullString
+        labelOnline.font = .systemFont(ofSize: 14 )
+        labelOnline.textColor = .gray
         
         
-        return lblOnline
+        return labelOnline
     }()
     
     
-    private lazy var btnEdit: UIButton = {
-        var btnEdit = UIButton(type: .system)
+    private lazy var buttonEdit: UIButton = {
+        var buttonEdit = UIButton(type: .system)
         
-        btnEdit.setTitle("Редактировать", for: .normal)
-        btnEdit.titleLabel?.font = .systemFont(ofSize: 15 )
-        btnEdit.setTitleColor(.white, for: .normal)
-        btnEdit.backgroundColor = #colorLiteral(red: 0.1716532707, green: 0.1766338348, blue: 0.1851372421, alpha: 1)
-        btnEdit.layer.cornerRadius = Metric.btnEditHeight / 4
-        return btnEdit
+        buttonEdit.setTitle("Редактировать", for: .normal)
+        buttonEdit.titleLabel?.font = .systemFont(ofSize: 15 )
+        buttonEdit.setTitleColor(.white, for: .normal)
+        buttonEdit.backgroundColor = #colorLiteral(red: 0.1716532707, green: 0.1766338348, blue: 0.1851372421, alpha: 1)
+        buttonEdit.layer.cornerRadius = Metric.btnEditHeight / 4
+        return buttonEdit
     }()
     
     private lazy var tabStackView: UIStackView = {
@@ -119,94 +112,94 @@ class ViewProfile: UIViewController {
         return tabStackView
     }()
     
-    private lazy var btnTabStory: UIButton = UIButton()
-    private lazy var imgStory: UIImageView = {
-        var imgStory = UIImageView()
+    private lazy var buttonTabStory: UIButton = UIButton()
+    private lazy var imageStory: UIImageView = {
+        var imageStory = UIImageView()
         
-        let img = UIImage(systemName: "camera")
-        imgStory.image = img
-        imgStory.tintColor = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
+        let imageCamera = UIImage(systemName: "camera")
+        imageStory.image = imageCamera
+        imageStory.tintColor = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
         
-        return imgStory
+        return imageStory
     }()
     
-    private lazy var lblStory: UILabel = {
-        let lbl = UILabel()
+    private lazy var labelStory: UILabel = {
+        let label = UILabel()
         
-        lbl.text = "История"
-        lbl.font = .systemFont(ofSize: 15, weight: .medium)
-        lbl.textColor = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
+        label.text = "История"
+        label.font = .systemFont(ofSize: 15, weight: .medium)
+        label.textColor = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
         
-        return lbl
+        return label
     }()
     
-    private lazy var btnTabNote: UIButton = UIButton()
-    private lazy var imgNote: UIImageView = {
-        var imgNote = UIImageView()
+    private lazy var buttonTabNote: UIButton = UIButton()
+    private lazy var imageNote: UIImageView = {
+        var imageNote = UIImageView()
         
-        let img = UIImage(systemName: "square.and.pencil")
-        imgNote.image = img
-        imgNote.tintColor = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
+        let image = UIImage(systemName: "square.and.pencil")
+        imageNote.image = image
+        imageNote.tintColor = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
         
-        return imgNote
+        return imageNote
     }()
     
-    private lazy var lblNote: UILabel = {
-        let lbl = UILabel()
+    private lazy var labelNote: UILabel = {
+        let label = UILabel()
         
-        lbl.text = "Запись"
-        lbl.font = .systemFont(ofSize: 15, weight: .medium)
-        lbl.textColor = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
+        label.text = "Запись"
+        label.font = .systemFont(ofSize: 15, weight: .medium)
+        label.textColor = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
         
-        return lbl
+        return label
     }()
     
-    private lazy var btnTabPhoto: UIButton = {
-        let btn = UIButton()
+    private lazy var buttonTabPhoto: UIButton = {
+        let button = UIButton()
         
-        btn.addTarget(self, action: #selector(action), for: .touchUpInside)
+        button.addTarget(self, action: #selector(action), for: .touchUpInside)
         
-        return btn
+        return button
     }()
-    private lazy var imgPhoto: UIImageView = {
-        var imgPhoto = UIImageView()
+    private lazy var imagePhoto: UIImageView = {
+        var imagePhoto = UIImageView()
         
-        let img = UIImage(systemName: "photo")
-        imgPhoto.image = img
-        imgPhoto.tintColor = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
+        let image = UIImage(systemName: "photo")
+        imagePhoto.image = image
+        imagePhoto.tintColor = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
         
-        return imgPhoto
-    }()
-    
-    private lazy var lblPhoto: UILabel = {
-        let lbl = UILabel()
-        
-        lbl.text = "Фото"
-        lbl.font = .systemFont(ofSize: 15, weight: .medium)
-        lbl.textColor = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
-        
-        return lbl
+        return imagePhoto
     }()
     
-    private lazy var btnTabVideo: UIButton = UIButton()
-    private lazy var imgVideo: UIImageView = {
-        var imgVideo = UIImageView()
+    private lazy var labelPhoto: UILabel = {
+        let label = UILabel()
         
-        let img = UIImage(systemName: "play.rectangle")
-        imgVideo.image = img
-        imgVideo.tintColor = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
+        label.text = "Фото"
+        label.font = .systemFont(ofSize: 15, weight: .medium)
+        label.textColor = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
         
-        return imgVideo
+        return label
     }()
     
-    private lazy var lblVideo: UILabel = {
-        let lbl = UILabel()
+    private lazy var buttonTabVideo: UIButton = UIButton()
+    private lazy var imageVideo: UIImageView = {
+        var imageVideo = UIImageView()
         
-        lbl.text = "Клип"
-        lbl.font = .systemFont(ofSize: 15, weight: .medium)
-        lbl.textColor = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
+        let image = UIImage(systemName: "play.rectangle")
+        imageVideo.image = image
+        imageVideo.tintColor = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
         
-        return lbl
+        return imageVideo
+    }()
+    
+    private lazy var labelVideo: UILabel = {
+        let label = UILabel()
+        
+        label.text = "Клип"
+        label.font = .systemFont(ofSize: 15, weight: .medium)
+        label.textColor = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
+        
+        return label
     }()
     
     private lazy var separator: UIView = {
@@ -227,83 +220,83 @@ class ViewProfile: UIViewController {
         return stackView
     }()
     
-    private lazy var lblCity: UILabel = {
-        var ibl = UILabel()
+    private lazy var labelCity: UILabel = {
+        var label = UILabel()
         
-        let img = NSTextAttachment()
-        img.image = UIImage(systemName: "house")?.withTintColor(.gray)
-        img.bounds = CGRect(x: 0, y: -4, width: 25, height: 20)
-        let fullString = NSMutableAttributedString(attachment: img)//
+        let image = NSTextAttachment()
+        image.image = UIImage(systemName: "house")?.withTintColor(.gray)
+        image.bounds = CGRect(x: 0, y: -4, width: 25, height: 20)
+        let fullString = NSMutableAttributedString(attachment: image)//
         fullString.append(NSAttributedString(string: "  Город: "))
         fullString.append(NSMutableAttributedString(string: "Архангельск"))
         
-        ibl.attributedText = fullString
-        ibl.font = .systemFont(ofSize: 15 )
-        ibl.textColor = .gray
+        label.attributedText = fullString
+        label.font = .systemFont(ofSize: 15 )
+        label.textColor = .gray
         
         
-        return ibl
+        return label
     }()
     
-    private lazy var lblSubscribers: UILabel = {
-        var ibl = UILabel()
+    private lazy var labelSubscribers: UILabel = {
+        var label = UILabel()
         
-        let img = NSTextAttachment()
-        img.image = UIImage(systemName: "dot.radiowaves.up.forward")?.withTintColor(.gray)
-        img.bounds = CGRect(x: 0, y: -4, width: 25, height: 20)
-        let fullString = NSMutableAttributedString(attachment: img)//
+        let image = NSTextAttachment()
+        image.image = UIImage(systemName: "dot.radiowaves.up.forward")?.withTintColor(.gray)
+        image.bounds = CGRect(x: 0, y: -4, width: 25, height: 20)
+        let fullString = NSMutableAttributedString(attachment: image)//
         fullString.append(NSAttributedString(string: "  "))
         fullString.append(NSAttributedString(string: "35"))
         fullString.append(NSMutableAttributedString(string: " Подписчиков"))
         
-        ibl.attributedText = fullString
-        ibl.font = .systemFont(ofSize: 15 )
-        ibl.textColor = .gray
+        label.attributedText = fullString
+        label.font = .systemFont(ofSize: 15 )
+        label.textColor = .gray
         
         
-        return ibl
+        return label
     }()
     
-    private lazy var btnJob: UIButton = {
-        var btn = UIButton(type: .system)
+    private lazy var buttonJob: UIButton = {
+        var button = UIButton(type: .system)
         
         let color = #colorLiteral(red: 0.4912340641, green: 0.6395314336, blue: 0.9491468072, alpha: 1)
         
-        let img = NSTextAttachment()
-        img.image = UIImage(systemName: "case")?.withTintColor(color)
-        img.bounds = CGRect(x: 0, y: -4, width: 25, height: 20)
+        let image = NSTextAttachment()
+        image.image = UIImage(systemName: "case")?.withTintColor(color)
+        image.bounds = CGRect(x: 0, y: -4, width: 25, height: 20)
         
-        let fullString = NSMutableAttributedString(attachment: img)//
+        let fullString = NSMutableAttributedString(attachment: image)//
         fullString.append(NSAttributedString(string: "  "))
         fullString.append(NSAttributedString(string: "Указать место работы"))
-        btn.titleLabel?.font = .systemFont(ofSize: 15 )
-        btn.setTitleColor(color, for: .normal)
-        btn.backgroundColor = #colorLiteral(red: 0.1716532707, green: 0.1766338348, blue: 0.1851372421, alpha: 0)
-        btn.setAttributedTitle(fullString, for: .normal)
-        return btn
+        button.titleLabel?.font = .systemFont(ofSize: 15 )
+        button.setTitleColor(color, for: .normal)
+        button.backgroundColor = #colorLiteral(red: 0.1716532707, green: 0.1766338348, blue: 0.1851372421, alpha: 0)
+        button.setAttributedTitle(fullString, for: .normal)
+        return button
     }()
     
-    private lazy var btnGift: UIButton = {
-        var btn = UIButton(type: .system)
+    private lazy var buttonGift: UIButton = {
+        var button = UIButton(type: .system)
         
         let color = #colorLiteral(red: 0.4450312853, green: 0.386110127, blue: 0.7607088685, alpha: 1)
         
-        let img = NSTextAttachment()
-        img.image = UIImage(systemName: "snowflake")?.withTintColor(color)
-        img.bounds = CGRect(x: 0, y: -6, width: 25, height: 25)
+        let image = NSTextAttachment()
+        image.image = UIImage(systemName: "snowflake")?.withTintColor(color)
+        image.bounds = CGRect(x: 0, y: -6, width: 25, height: 25)
         
-        let fullString = NSMutableAttributedString(attachment: img)//
+        let fullString = NSMutableAttributedString(attachment: image)//
         fullString.append(NSAttributedString(string: "  "))
         fullString.append(NSAttributedString(string: "Получить подарок"))
-        btn.titleLabel?.font = .systemFont(ofSize: 15 )
-        btn.setTitleColor(color, for: .normal)
-        btn.backgroundColor = #colorLiteral(red: 0.1716532707, green: 0.1766338348, blue: 0.1851372421, alpha: 0)
-        btn.setAttributedTitle(fullString, for: .normal)
-        return btn
+        button.titleLabel?.font = .systemFont(ofSize: 15 )
+        button.setTitleColor(color, for: .normal)
+        button.backgroundColor = #colorLiteral(red: 0.1716532707, green: 0.1766338348, blue: 0.1851372421, alpha: 0)
+        button.setAttributedTitle(fullString, for: .normal)
+        return button
     }()
     
-    private lazy var btnInfo: UIButton = {
-        var btn = UIButton(type: .system)
+    private lazy var buttonInfo: UIButton = {
+        var button = UIButton(type: .system)
         
         let color = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         
@@ -314,11 +307,11 @@ class ViewProfile: UIViewController {
         let fullString = NSMutableAttributedString(attachment: img)//
         fullString.append(NSAttributedString(string: "  "))
         fullString.append(NSAttributedString(string: "Подробная информация"))
-        btn.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
-        btn.setTitleColor(color, for: .normal)
-        btn.backgroundColor = #colorLiteral(red: 0.1716532707, green: 0.1766338348, blue: 0.1851372421, alpha: 0)
-        btn.setAttributedTitle(fullString, for: .normal)
-        return btn
+        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
+        button.setTitleColor(color, for: .normal)
+        button.backgroundColor = #colorLiteral(red: 0.1716532707, green: 0.1766338348, blue: 0.1851372421, alpha: 0)
+        button.setAttributedTitle(fullString, for: .normal)
+        return button
     }()
     
     
@@ -338,39 +331,39 @@ class ViewProfile: UIViewController {
         view.addSubview(profileStackView)
         profileStackView.addArrangedSubview(infoStackView)
         
-            infoStackView.addArrangedSubview(imgAvatar)
-            infoStackView.addArrangedSubview(lblStackView)
+            infoStackView.addArrangedSubview(imageAvatar)
+            infoStackView.addArrangedSubview(labelStackView)
             
-                lblStackView.addArrangedSubview(lblName)
-                lblStackView.addArrangedSubview(lblStatus)
-                lblStackView.addArrangedSubview(onlineStackView)
+        labelStackView.addArrangedSubview(labelName)
+        labelStackView.addArrangedSubview(labelStatus)
+        labelStackView.addArrangedSubview(onlineStackView)
             
-                    onlineStackView.addArrangedSubview(lblOnline)
-        profileStackView.addArrangedSubview(btnEdit)
+                    onlineStackView.addArrangedSubview(labelOnline)
+        profileStackView.addArrangedSubview(buttonEdit)
         profileStackView.addArrangedSubview(tabStackView)
         
-            tabStackView.addArrangedSubview(btnTabStory)
-                btnTabStory.addSubview(imgStory)
-                btnTabStory.addSubview(lblStory)
-            tabStackView.addArrangedSubview(btnTabNote)
-                btnTabNote.addSubview(imgNote)
-                btnTabNote.addSubview(lblNote)
-            tabStackView.addArrangedSubview(btnTabPhoto)
-                btnTabPhoto.addSubview(lblPhoto)
-                btnTabPhoto.addSubview(imgPhoto)
-            tabStackView.addArrangedSubview(btnTabVideo)
-                btnTabVideo.addSubview(lblVideo)
-                btnTabVideo.addSubview(imgVideo)
+            tabStackView.addArrangedSubview(buttonTabStory)
+        buttonTabStory.addSubview(imageStory)
+        buttonTabStory.addSubview(labelStory)
+            tabStackView.addArrangedSubview(buttonTabNote)
+        buttonTabNote.addSubview(imageNote)
+        buttonTabNote.addSubview(labelNote)
+            tabStackView.addArrangedSubview(buttonTabPhoto)
+        buttonTabPhoto.addSubview(labelPhoto)
+        buttonTabPhoto.addSubview(imagePhoto)
+            tabStackView.addArrangedSubview(buttonTabVideo)
+        buttonTabVideo.addSubview(labelVideo)
+        buttonTabVideo.addSubview(imageVideo)
         
         profileStackView.addSubview(separator)
         
         profileStackView.addArrangedSubview(separator)
         profileStackView.addArrangedSubview(mStackView)
-            mStackView.addArrangedSubview(lblCity)
-            mStackView.addArrangedSubview(lblSubscribers)
-            mStackView.addArrangedSubview(btnJob)
-            mStackView.addArrangedSubview(btnGift)
-            mStackView.addArrangedSubview(btnInfo)
+            mStackView.addArrangedSubview(labelCity)
+            mStackView.addArrangedSubview(labelSubscribers)
+            mStackView.addArrangedSubview(buttonJob)
+            mStackView.addArrangedSubview(buttonGift)
+            mStackView.addArrangedSubview(buttonInfo)
         
     }
     
@@ -380,72 +373,71 @@ class ViewProfile: UIViewController {
         profileStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         profileStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         
-        imgAvatar.translatesAutoresizingMaskIntoConstraints = false
-        imgAvatar.heightAnchor.constraint(equalToConstant: Metric.imgAvaHeight).isActive = true
-        imgAvatar.widthAnchor.constraint(equalToConstant: Metric.imgAvaWidth).isActive = true
+        imageAvatar.translatesAutoresizingMaskIntoConstraints = false
+        imageAvatar.heightAnchor.constraint(equalToConstant: Metric.imgAvaHeight).isActive = true
+        imageAvatar.widthAnchor.constraint(equalToConstant: Metric.imgAvaWidth).isActive = true
         
-        lblName.translatesAutoresizingMaskIntoConstraints = false
+        labelName.translatesAutoresizingMaskIntoConstraints = false
         
-        btnEdit.heightAnchor.constraint(equalToConstant: Metric.btnEditHeight).isActive = true
+        buttonEdit.heightAnchor.constraint(equalToConstant: Metric.btnEditHeight).isActive = true
         
-        //btnTabStory.translatesAutoresizingMaskIntoConstraints = false
-        btnTabStory.heightAnchor.constraint(equalToConstant: Metric.imgAvaHeight).isActive = true
-        btnTabStory.widthAnchor.constraint(equalToConstant: Metric.imgAvaWidth).isActive = true
+        buttonTabStory.heightAnchor.constraint(equalToConstant: Metric.imgAvaHeight).isActive = true
+        buttonTabStory.widthAnchor.constraint(equalToConstant: Metric.imgAvaWidth).isActive = true
         
-        btnTabNote.heightAnchor.constraint(equalToConstant: Metric.imgAvaHeight).isActive = true
-        btnTabNote.widthAnchor.constraint(equalToConstant: Metric.imgAvaWidth).isActive = true
+        buttonTabNote.heightAnchor.constraint(equalToConstant: Metric.imgAvaHeight).isActive = true
+        buttonTabNote.widthAnchor.constraint(equalToConstant: Metric.imgAvaWidth).isActive = true
         
-        btnTabPhoto.heightAnchor.constraint(equalToConstant: Metric.imgAvaHeight).isActive = true
-        btnTabPhoto.widthAnchor.constraint(equalToConstant: Metric.imgAvaWidth).isActive = true
+        buttonTabPhoto.heightAnchor.constraint(equalToConstant: Metric.imgAvaHeight).isActive = true
+        buttonTabPhoto.widthAnchor.constraint(equalToConstant: Metric.imgAvaWidth).isActive = true
         
-        btnTabVideo.heightAnchor.constraint(equalToConstant: Metric.imgAvaHeight).isActive = true
-        btnTabVideo.widthAnchor.constraint(equalToConstant: Metric.imgAvaWidth).isActive = true
+        buttonTabVideo.heightAnchor.constraint(equalToConstant: Metric.imgAvaHeight).isActive = true
+        buttonTabVideo.widthAnchor.constraint(equalToConstant: Metric.imgAvaWidth).isActive = true
         
         separator.heightAnchor.constraint(equalToConstant: 1).isActive = true
         
-        btnJob.titleLabel?.leadingAnchor.constraint(equalTo: btnJob.leadingAnchor).isActive = true
-        btnGift.titleLabel?.leadingAnchor.constraint(equalTo: btnGift.leadingAnchor).isActive = true
-        btnInfo.titleLabel?.leadingAnchor.constraint(equalTo: btnInfo.leadingAnchor).isActive = true
+        buttonJob.titleLabel?.leadingAnchor.constraint(equalTo: buttonJob.leadingAnchor).isActive = true
+        buttonGift.titleLabel?.leadingAnchor.constraint(equalTo: buttonGift.leadingAnchor).isActive = true
+        buttonInfo.titleLabel?.leadingAnchor.constraint(equalTo: buttonInfo.leadingAnchor).isActive = true
         
-        lblPhoto.translatesAutoresizingMaskIntoConstraints = false
-        lblPhoto.centerXAnchor.constraint(equalTo: btnTabPhoto.centerXAnchor).isActive = true
-        lblPhoto.centerYAnchor.constraint(equalTo: btnTabPhoto.bottomAnchor, constant: -20).isActive = true
+        labelPhoto.translatesAutoresizingMaskIntoConstraints = false
+        labelPhoto.centerXAnchor.constraint(equalTo: buttonTabPhoto.centerXAnchor).isActive = true
+        labelPhoto.centerYAnchor.constraint(equalTo: buttonTabPhoto.bottomAnchor, constant: -20).isActive = true
         
-        imgPhoto.translatesAutoresizingMaskIntoConstraints = false
-        imgPhoto.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        imgPhoto.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        imgPhoto.centerXAnchor.constraint(equalTo: btnTabPhoto.centerXAnchor).isActive = true
-        imgPhoto.centerYAnchor.constraint(equalTo: btnTabPhoto.topAnchor, constant: 30).isActive = true
+        imagePhoto.translatesAutoresizingMaskIntoConstraints = false
+        imagePhoto.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        imagePhoto.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        imagePhoto.centerXAnchor.constraint(equalTo: buttonTabPhoto.centerXAnchor).isActive = true
+        imagePhoto.centerYAnchor.constraint(equalTo: buttonTabPhoto.topAnchor, constant: 30).isActive = true
         
-        lblVideo.translatesAutoresizingMaskIntoConstraints = false
-        lblVideo.centerXAnchor.constraint(equalTo: btnTabVideo.centerXAnchor).isActive = true
-        lblVideo.centerYAnchor.constraint(equalTo: btnTabVideo.bottomAnchor, constant: -20).isActive = true
+        labelVideo.translatesAutoresizingMaskIntoConstraints = false
+        labelVideo.centerXAnchor.constraint(equalTo: buttonTabVideo.centerXAnchor).isActive = true
+        labelVideo.centerYAnchor.constraint(equalTo: buttonTabVideo.bottomAnchor, constant: -20).isActive = true
         
-        imgVideo.translatesAutoresizingMaskIntoConstraints = false
-        imgVideo.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        imgVideo.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        imgVideo.centerXAnchor.constraint(equalTo: btnTabVideo.centerXAnchor).isActive = true
-        imgVideo.centerYAnchor.constraint(equalTo: btnTabVideo.topAnchor, constant: 30).isActive = true
+        imageVideo.translatesAutoresizingMaskIntoConstraints = false
+        imageVideo.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        imageVideo.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        imageVideo.centerXAnchor.constraint(equalTo: buttonTabVideo.centerXAnchor).isActive = true
+        imageVideo.centerYAnchor.constraint(equalTo: buttonTabVideo.topAnchor, constant: 30).isActive = true
         
-        lblStory.translatesAutoresizingMaskIntoConstraints = false
-        lblStory.centerXAnchor.constraint(equalTo: btnTabStory.centerXAnchor).isActive = true
-        lblStory.centerYAnchor.constraint(equalTo: btnTabStory.bottomAnchor, constant: -20).isActive = true
+        labelStory.translatesAutoresizingMaskIntoConstraints = false
+        labelStory.centerXAnchor.constraint(equalTo: buttonTabStory.centerXAnchor).isActive = true
+        labelStory.centerYAnchor.constraint(equalTo: buttonTabStory.bottomAnchor, constant: -20).isActive = true
         
-        imgStory.translatesAutoresizingMaskIntoConstraints = false
-        imgStory.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        imgStory.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        imgStory.centerXAnchor.constraint(equalTo: btnTabStory.centerXAnchor).isActive = true
-        imgStory.centerYAnchor.constraint(equalTo: btnTabStory.topAnchor, constant: 30).isActive = true
+        imageStory.translatesAutoresizingMaskIntoConstraints = false
+        imageStory.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        imageStory.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        imageStory.centerXAnchor.constraint(equalTo: buttonTabStory.centerXAnchor).isActive = true
+        imageStory.centerYAnchor.constraint(equalTo: buttonTabStory.topAnchor, constant: 30).isActive = true
         
-        lblNote.translatesAutoresizingMaskIntoConstraints = false
-        lblNote.centerXAnchor.constraint(equalTo: btnTabNote.centerXAnchor).isActive = true
-        lblNote.centerYAnchor.constraint(equalTo: btnTabNote.bottomAnchor, constant: -20).isActive = true
+        labelNote.translatesAutoresizingMaskIntoConstraints = false
+        labelNote.centerXAnchor.constraint(equalTo: buttonTabNote.centerXAnchor).isActive = true
+        labelNote.centerYAnchor.constraint(equalTo: buttonTabNote.bottomAnchor, constant: -20).isActive = true
         
-        imgNote.translatesAutoresizingMaskIntoConstraints = false
-        imgNote.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        imgNote.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        imgNote.centerXAnchor.constraint(equalTo: btnTabNote.centerXAnchor).isActive = true
-        imgNote.centerYAnchor.constraint(equalTo: btnTabNote.topAnchor, constant: 30).isActive = true
+        imageNote.translatesAutoresizingMaskIntoConstraints = false
+        imageNote.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        imageNote.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        imageNote.centerXAnchor.constraint(equalTo: buttonTabNote.centerXAnchor).isActive = true
+        imageNote.centerYAnchor.constraint(equalTo: buttonTabNote.topAnchor, constant: 30).isActive = true
         
         
         
